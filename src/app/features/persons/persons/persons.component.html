@@ -1,0 +1,9 @@
+<h1>Persons</h1>
+
+<ng-container *ngIf="persons.length > 0; else noResults">
+  <div class="card-grid"></div>
+</ng-container>
+
+<ng-template #noResults>
+  <p class="text-muted">No persons has been found</p>
+</ng-template>

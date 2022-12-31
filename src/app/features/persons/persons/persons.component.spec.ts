@@ -1,20 +1,21 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {AppComponent} from './app.component';
+
+import {PersonsComponent} from './persons.component';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {TestingModule} from '@core/testing/testing.module';
 
-describe('AppComponent', () => {
-  let component: AppComponent;
-  let fixture: ComponentFixture<AppComponent>;
+describe('PersonsComponent', () => {
+  let component: PersonsComponent;
+  let fixture: ComponentFixture<PersonsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AppComponent],
+      declarations: [PersonsComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       imports: [TestingModule],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(AppComponent);
+    fixture = TestBed.createComponent(PersonsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

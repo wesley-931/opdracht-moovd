@@ -1,20 +1,21 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {AppComponent} from './app.component';
-import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
-import {TestingModule} from '@core/testing/testing.module';
 
-describe('AppComponent', () => {
-  let component: AppComponent;
-  let fixture: ComponentFixture<AppComponent>;
+import {LoaderComponent} from './loader.component';
+import {TestingModule} from '@core/testing/testing.module';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+
+describe('LoaderComponent', () => {
+  let component: LoaderComponent;
+  let fixture: ComponentFixture<LoaderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AppComponent],
+      declarations: [LoaderComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       imports: [TestingModule],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(AppComponent);
+    fixture = TestBed.createComponent(LoaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
