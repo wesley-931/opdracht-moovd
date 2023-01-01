@@ -1,35 +1,67 @@
 <header>
-  <h2>Create person</h2>
+  <h2>{{editMode ? 'Edit Person' : 'Create Person'}}</h2>
 </header>
-<main class="row">
-  <div class="mb-3 col-12 col-md-6">
-    <label class="form-label">Name</label>
-    <input type="text" class="form-control" />
-  </div>
+<form [formGroup]="form">
+  <main class="row">
+    <div class="mb-3 col-12 col-md-6">
+      <label class="form-label">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        [formControl]="form.controls[fields.Name]"
+      />
+    </div>
 
-  <div class="mb-3 col-12 col-md-6">
-    <label class="form-label">Email</label>
-    <input type="email" class="form-control" placeholder="name@example.com" />
-  </div>
+    <div class="mb-3 col-12 col-md-6">
+      <label class="form-label">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        placeholder="name@example.com"
+        [formControl]="form.controls[fields.Email]"
+      />
+    </div>
 
-  <div class="mb-3 col-12 col-md-6">
-    <label class="form-label">Date of Birth</label>
-    <input type="date" class="form-control" />
-  </div>
+    <div class="mb-3 col-12 col-md-6">
+      <label class="form-label">Date of Birth</label>
+      <input
+        type="date"
+        class="form-control"
+        [formControl]="form.controls[fields.DateOfBirth]"
+      />
+    </div>
 
-  <div class="mb-3 col-12 col-md-6">
-    <label class="form-label">Country</label>
-    <app-country-select></app-country-select>
-  </div>
-</main>
-<footer>
-  <button type="button" class="btn btn-outline-secondary">
-    <fa-icon icon="times"></fa-icon>
-    Cancel
-  </button>
+    <div class="mb-3 col-12 col-md-6">
+      <label class="form-label">Country</label>
+      <app-country-select
+        [control]="form.controls[fields.Country]"
+      ></app-country-select>
+    </div>
+  </main>
 
-  <button type="button" class="btn btn-primary">
-    <fa-icon icon="plus"></fa-icon>
-    Save
-  </button>
-</footer>
+  <pre>
+  {{form.value | json}}
+</pre
+  >
+  <footer>
+    <button type="button" class="btn btn-outline-secondary" (click)="close()">
+      <fa-icon icon="times"></fa-icon>
+      Cancel
+    </button>
+
+    <button
+      type="button"
+      *ngIf="editMode"
+      class="btn btn-danger"
+      (click)="close()"
+    >
+      <fa-icon icon="trash-can"></fa-icon>
+      Delete
+    </button>
+
+    <button type="button" class="btn btn-primary">
+      <fa-icon icon="plus"></fa-icon>
+      Save
+    </button>
+  </footer>
+</form>

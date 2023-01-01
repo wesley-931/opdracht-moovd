@@ -18,6 +18,14 @@ footer {
   }
 }
 
+input {
+  &.ng-invalid {
+    &.ng-touched {
+      border-color: red;
+    }
+  }
+}
+
 @include breakpoint-up('lg') {
   :host {
     padding: 2rem;

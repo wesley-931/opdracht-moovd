@@ -8,6 +8,7 @@ import {LoadingModule} from '@shared/components/loading/loading.module';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {PersonDialogComponent} from './components/person-dialog/person-dialog.component';
 import {CountrySelectModule} from '@shared/components/country-select/country-select.module';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [PersonsComponent, PersonCardComponent, PersonDialogComponent],
@@ -17,6 +18,7 @@ import {CountrySelectModule} from '@shared/components/country-select/country-sel
     LoadingModule,
     FontAwesomeModule,
     CountrySelectModule,
+    ReactiveFormsModule,
   ],
 })
 export class PersonsModule {}
