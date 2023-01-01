@@ -9,6 +9,15 @@
   border-radius: 0.5rem;
 }
 
+footer {
+  @include flex(center, space-between);
+  gap: 1rem;
+  padding-top: 1rem;
+  .btn-primary {
+    flex: 1;
+  }
+}
+
 @include breakpoint-up('lg') {
   :host {
     padding: 2rem;
