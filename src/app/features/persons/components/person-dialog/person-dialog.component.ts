@@ -5,8 +5,15 @@ import {PersonFormFields} from '@core/enums';
 import {Person} from '@core/interfaces';
 import {take, timer} from 'rxjs';
 import * as dayjs from 'dayjs';
+
+export type PersonDialogResponseType = 'create' | 'delete' | 'edit';
 export interface PersonDialogData {
   person?: Person;
+}
+
+export interface PersonDialogAfterClosed {
+  type: PersonDialogResponseType;
+  person: Person;
 }
 @Component({
   selector: 'app-person-dialog',
@@ -19,9 +26,7 @@ export class PersonDialogComponent {
   public formLoading = false;
   public fields = PersonFormFields;
   public form = new FormGroup({
-    [this.fields.Identifier]: new FormControl<number | null>(null, [
-      Validators.required,
-    ]),
+    [this.fields.Identifier]: new FormControl<number | null>(null),
     [this.fields.Name]: new FormControl<string | null>(null, [
       Validators.required,
     ]),
@@ -29,6 +34,7 @@ export class PersonDialogComponent {
       Validators.required,
       Validators.email,
     ]),
+    [this.fields.Avatar]: new FormControl<string | null>('test', []),
     [this.fields.DateOfBirth]: new FormControl<string | null>(null, [
       Validators.required,
     ]),
@@ -53,7 +59,7 @@ export class PersonDialogComponent {
   }
 
   public save(): void {
-    if (!this.form.dirty && !this.form.valid) {
+    if (!this.form.valid) {
       this.form.markAllAsTouched();
       return;
     }
@@ -74,15 +80,29 @@ export class PersonDialogComponent {
     this.dialog.close();
   }
 
+  public delete(): void {
+    if (this.person) {
+      const response: PersonDialogAfterClosed = {
+        type: 'delete',
+        person: this.person,
+      };
+      this.dialog.close(response);
+    }
+  }
+
   private update(): void {
-    //
+    const response: PersonDialogAfterClosed = {
+      type: 'edit',
+      person: this.form.getRawValue() as Person,
+    };
+    this.dialog.close(response);
   }
 
   private create(): void {
-    //
-  }
-
-  private delete(): void {
-    //
+    const response: PersonDialogAfterClosed = {
+      type: 'create',
+      person: this.form.getRawValue() as Person,
+    };
+    this.dialog.close(response);
   }
 }

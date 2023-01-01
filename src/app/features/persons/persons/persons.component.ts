@@ -1,7 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {DialogService} from '@core/services/dialog/dialog.service';
 import {finalize, take, timer} from 'rxjs';
-import {PersonDialogComponent} from '../components/person-dialog/person-dialog.component';
+import {
+  PersonDialogAfterClosed,
+  PersonDialogComponent,
+} from '../components/person-dialog/person-dialog.component';
 import {Person} from '@core/interfaces';
 import * as dayjs from 'dayjs';
 export const persons: Array<Person> = [
@@ -61,11 +64,41 @@ export class PersonsComponent implements OnInit {
   }
 
   public createPerson(): void {
-    this.dialog.open(PersonDialogComponent);
+    this.dialog
+      .open<unknown, PersonDialogAfterClosed | undefined>(PersonDialogComponent)
+      .subscribe((result?: PersonDialogAfterClosed) => {
+        if (result) {
+          if (result.type === 'create') {
+            if (this.persons.length > 0) {
+              result.person.identifier =
+                (this.persons[this.persons.length - 1].identifier as number) +
+                1;
+            } else {
+              result.person.identifier = 1;
+            }
+            this.persons.push(result.person);
+          }
+        }
+      });
   }
 
   public edit(person: Person): void {
-    this.dialog.open(PersonDialogComponent, {person});
+    this.dialog
+      .open<unknown, PersonDialogAfterClosed | undefined>(
+        PersonDialogComponent,
+        {
+          person,
+        }
+      )
+      .subscribe((result?: PersonDialogAfterClosed) => {
+        if (result) {
+          if (result.type === 'edit') {
+            this.editPerson(result.person);
+          } else {
+            this.deletePerson(result.person);
+          }
+        }
+      });
   }
 
   private initialize(): void {
@@ -88,5 +121,24 @@ export class PersonsComponent implements OnInit {
           // Do things with persons
         },
       });
+  }
+
+  private editPerson(person: Person): void {
+    const index = this.getIndexPerson(person);
+
+    this.persons[index] = person;
+  }
+
+  private deletePerson(person: Person): void {
+    const index = this.getIndexPerson(person);
+    this.persons.splice(index, 1);
+  }
+
+  private getIndexPerson(person: Person): number {
+    const objWithIdIndex = this.persons.findIndex(
+      obj => obj.identifier === person.identifier
+    );
+
+    return objWithIdIndex;
   }
 }
