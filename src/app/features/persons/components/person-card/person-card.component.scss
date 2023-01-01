@@ -1,0 +1,9 @@
+@import 'includes';
+:host {
+  @include flex();
+  gap: 0.5rem;
+  padding: 1rem;
+  background-color: #ebebec;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 30%);
+}

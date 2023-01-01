@@ -22,7 +22,7 @@ export class PersonsComponent implements OnInit {
    * Fetches person from API
    */
   private fetchPersons(): void {
-    timer(3000)
+    timer(250)
       .pipe(
         take(1),
         finalize(() => {
