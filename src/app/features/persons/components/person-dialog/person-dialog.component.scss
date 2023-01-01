@@ -11,7 +11,7 @@
 
 footer {
   @include flex(center, space-between);
-  gap: 1rem;
+  gap: 0.5rem;
   padding-top: 1rem;
   .btn-primary {
     flex: 1;

@@ -12,6 +12,7 @@
       <app-person-card
         *ngFor="let person of persons"
         [person]="person"
+        (personClicked)="edit(person)"
       ></app-person-card>
     </div>
   </ng-container>

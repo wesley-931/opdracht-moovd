@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Person} from '@core/interfaces';
 
 @Component({
@@ -9,4 +9,11 @@ import {Person} from '@core/interfaces';
 export class PersonCardComponent {
   @Input()
   public person?: Person;
+
+  @Output()
+  public personClicked = new EventEmitter<void>();
+
+  public personClick(): void {
+    this.personClicked.emit();
+  }
 }

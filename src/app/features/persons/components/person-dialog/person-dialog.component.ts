@@ -4,7 +4,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {PersonFormFields} from '@core/enums';
 import {Person} from '@core/interfaces';
 import {take, timer} from 'rxjs';
-
+import * as dayjs from 'dayjs';
 export interface PersonDialogData {
   person?: Person;
 }
@@ -29,7 +29,7 @@ export class PersonDialogComponent {
       Validators.required,
       Validators.email,
     ]),
-    [this.fields.DateOfBirth]: new FormControl<Date | null>(null, [
+    [this.fields.DateOfBirth]: new FormControl<string | null>(null, [
       Validators.required,
     ]),
     [this.fields.Country]: new FormControl<string | null>(null, [
@@ -37,6 +37,7 @@ export class PersonDialogComponent {
     ]),
   });
 
+  public testControl = new FormControl('2022-12-12');
   public get editMode(): boolean {
     return !!this.person;
   }

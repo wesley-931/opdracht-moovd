@@ -5,7 +5,7 @@ import * as dayjs from 'dayjs';
   name: 'age',
 })
 export class AgePipe implements PipeTransform {
-  transform(value?: Date): string {
+  transform(value?: string): string {
     if (!value) {
       return '-';
     }

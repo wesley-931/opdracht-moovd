@@ -5,6 +5,6 @@ export interface Person {
   [PersonFormFields.Name]: string;
   [PersonFormFields.Email]: string;
   [PersonFormFields.Avatar]: string;
-  [PersonFormFields.DateOfBirth]: Date;
+  [PersonFormFields.DateOfBirth]: string;
   [PersonFormFields.Country]: string;
 }

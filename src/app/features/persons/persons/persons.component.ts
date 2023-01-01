@@ -10,7 +10,7 @@ export const persons: Array<Person> = [
     name: 'Henk Buren',
     email: 'henk@test.com',
     avatar: '',
-    dateOfBirth: dayjs('1969-04-20').toDate(),
+    dateOfBirth: '1969-04-20',
     country: 'Netherlands (the)',
   },
   {
@@ -18,7 +18,7 @@ export const persons: Array<Person> = [
     name: 'Mart Slager',
     email: 'mart@test.com',
     avatar: '',
-    dateOfBirth: dayjs('1992-03-11').toDate(),
+    dateOfBirth: '1992-03-11',
     country: 'Netherlands (the)',
   },
   {
@@ -26,7 +26,7 @@ export const persons: Array<Person> = [
     name: 'Mark Benen',
     email: 'mark@test.com',
     avatar: '',
-    dateOfBirth: dayjs('1988-02-03').toDate(),
+    dateOfBirth: '1988-02-03',
     country: 'Netherlands (the)',
   },
   {
@@ -34,7 +34,7 @@ export const persons: Array<Person> = [
     name: 'Jordy Strevend',
     email: 'jordy@test.com',
     avatar: '',
-    dateOfBirth: dayjs('1997-02-27').toDate(),
+    dateOfBirth: '1997-02-27',
     country: 'Netherlands (the)',
   },
   {
@@ -42,7 +42,7 @@ export const persons: Array<Person> = [
     name: 'Wesley Barink',
     email: 'wesley@test.com',
     avatar: '',
-    dateOfBirth: dayjs('1999-07-21').toDate(),
+    dateOfBirth: '1999-07-21',
     country: 'Netherlands (the)',
   },
 ];
@@ -63,6 +63,11 @@ export class PersonsComponent implements OnInit {
   public createPerson(): void {
     this.dialog.open(PersonDialogComponent);
   }
+
+  public edit(person: Person): void {
+    this.dialog.open(PersonDialogComponent, {person});
+  }
+
   private initialize(): void {
     this.fetchPersons();
   }
