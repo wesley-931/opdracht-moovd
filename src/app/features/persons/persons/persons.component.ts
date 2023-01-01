@@ -7,4 +7,5 @@ import {Component} from '@angular/core';
 })
 export class PersonsComponent {
   public persons = [1, 2, 3, 4, 5, 6];
+  public isLoading = true;
 }

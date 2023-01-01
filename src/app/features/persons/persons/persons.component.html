@@ -1,10 +1,13 @@
 <h1>Persons</h1>
 
-<app-loader></app-loader>
-<ng-container *ngIf="persons.length > 0; else noResults">
-  <div class="card-grid"></div>
+<ng-container *ngIf="!isLoading; else loader">
+  <ng-container *ngIf="persons.length > 0; else noResults">
+    <div class="card-grid"></div>
+  </ng-container>
 </ng-container>
 
 <ng-template #noResults>
   <p class="text-muted">No persons has been found</p>
 </ng-template>
+
+<ng-template #loader><app-loader></app-loader></ng-template>
