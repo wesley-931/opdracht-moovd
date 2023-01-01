@@ -9,7 +9,10 @@
 <ng-container *ngIf="!isLoading; else loader">
   <ng-container *ngIf="persons.length > 0; else noResults">
     <div class="card-grid">
-      <app-person-card *ngFor="let person of persons"></app-person-card>
+      <app-person-card
+        *ngFor="let person of persons"
+        [person]="person"
+      ></app-person-card>
     </div>
   </ng-container>
 </ng-container>

@@ -1,7 +1,7 @@
 import {PersonFormFields} from '@core/enums';
 
 export interface Person {
-  [PersonFormFields.Identifier]: string;
+  [PersonFormFields.Identifier]: number;
   [PersonFormFields.Name]: string;
   [PersonFormFields.Email]: string;
   [PersonFormFields.Avatar]: string;

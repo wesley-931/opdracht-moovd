@@ -1,55 +1,59 @@
 <header>
   <h2>{{editMode ? 'Edit Person' : 'Create Person'}}</h2>
 </header>
-<form [formGroup]="form">
-  <main class="row">
-    <div class="mb-3 col-12 col-md-6">
-      <label class="form-label">Name</label>
-      <input
-        type="text"
-        class="form-control"
-        [formControl]="form.controls[fields.Name]"
-      />
-    </div>
+<form [formGroup]="form" (submit)="save()">
+  <ng-container *ngIf="!formLoading; else loader">
+    <main class="row">
+      <div class="mb-3 col-12 col-md-6">
+        <label class="form-label">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          [formControl]="form.controls[fields.Name]"
+        />
+      </div>
 
-    <div class="mb-3 col-12 col-md-6">
-      <label class="form-label">Email</label>
-      <input
-        type="email"
-        class="form-control"
-        placeholder="name@example.com"
-        [formControl]="form.controls[fields.Email]"
-      />
-    </div>
+      <div class="mb-3 col-12 col-md-6">
+        <label class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          placeholder="name@example.com"
+          [formControl]="form.controls[fields.Email]"
+        />
+      </div>
 
-    <div class="mb-3 col-12 col-md-6">
-      <label class="form-label">Date of Birth</label>
-      <input
-        type="date"
-        class="form-control"
-        [formControl]="form.controls[fields.DateOfBirth]"
-      />
-    </div>
+      <div class="mb-3 col-12 col-md-6">
+        <label class="form-label">Date of Birth</label>
+        <input
+          type="date"
+          class="form-control"
+          [formControl]="form.controls[fields.DateOfBirth]"
+        />
+      </div>
 
-    <div class="mb-3 col-12 col-md-6">
-      <label class="form-label">Country</label>
-      <app-country-select
-        [control]="form.controls[fields.Country]"
-      ></app-country-select>
-    </div>
-  </main>
+      <div class="mb-3 col-12 col-md-6">
+        <label class="form-label">Country</label>
+        <app-country-select
+          [control]="form.controls[fields.Country]"
+        ></app-country-select>
+      </div>
+    </main>
+  </ng-container>
 
-  <pre>
-  {{form.value | json}}
-</pre
-  >
   <footer>
-    <button type="button" class="btn btn-outline-secondary" (click)="close()">
+    <button
+      [disabled]="formLoading"
+      type="button"
+      class="btn btn-outline-secondary"
+      (click)="close()"
+    >
       <fa-icon icon="times"></fa-icon>
       Cancel
     </button>
 
     <button
+      [disabled]="formLoading"
       type="button"
       *ngIf="editMode"
       class="btn btn-danger"
@@ -59,9 +63,10 @@
       Delete
     </button>
 
-    <button type="button" class="btn btn-primary">
+    <button type="submit" class="btn btn-primary" [disabled]="formLoading">
       <fa-icon icon="plus"></fa-icon>
       Save
     </button>
   </footer>
 </form>
+<ng-template #loader><app-loader></app-loader></ng-template>

@@ -26,6 +26,10 @@ input {
   }
 }
 
+app-loader {
+  height: 5rem;
+}
+
 @include breakpoint-up('lg') {
   :host {
     padding: 2rem;

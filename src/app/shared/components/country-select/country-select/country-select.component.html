@@ -1,4 +1,9 @@
-<select class="form-control" name="country" id="country">
+<select
+  class="form-control"
+  name="country"
+  id="country"
+  [formControl]="control"
+>
   <option value="" disabled selected>Select Country</option>
   <option *ngFor="let option of options" [value]="option.name">
     {{option.name}}

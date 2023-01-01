@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {Person} from '@core/interfaces';
 
 @Component({
   selector: 'app-person-card',
   templateUrl: './person-card.component.html',
-  styleUrls: ['./person-card.component.scss']
+  styleUrls: ['./person-card.component.scss'],
 })
-export class PersonCardComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class PersonCardComponent {
+  @Input()
+  public person?: Person;
 }

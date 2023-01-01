@@ -9,6 +9,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {PersonDialogComponent} from './components/person-dialog/person-dialog.component';
 import {CountrySelectModule} from '@shared/components/country-select/country-select.module';
 import {ReactiveFormsModule} from '@angular/forms';
+import {PipesModule} from '@shared/pipes/pipes/pipes.module';
 
 @NgModule({
   declarations: [PersonsComponent, PersonCardComponent, PersonDialogComponent],
@@ -19,6 +20,7 @@ import {ReactiveFormsModule} from '@angular/forms';
     FontAwesomeModule,
     CountrySelectModule,
     ReactiveFormsModule,
+    PipesModule,
   ],
 })
 export class PersonsModule {}
