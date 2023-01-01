@@ -1,9 +1,21 @@
+@import 'includes';
+
 :host {
   display: grid;
   grid-template-rows: auto 1fr;
   height: 100%;
 }
 
+header {
+  padding: 1rem 0;
+  @include flex(center, space-between);
+}
+
+button {
+  fa-icon {
+    margin-right: 0.25rem;
+  }
+}
 .card-grid {
   display: grid;
   grid-auto-rows: min-content;

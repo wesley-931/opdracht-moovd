@@ -1,4 +1,10 @@
-<h1>Persons</h1>
+<header>
+  <h1>Persons</h1>
+  <button type="button" class="btn btn-primary">
+    <fa-icon icon="plus"></fa-icon>
+    Create
+  </button>
+</header>
 
 <ng-container *ngIf="!isLoading; else loader">
   <ng-container *ngIf="persons.length > 0; else noResults">
