@@ -4,7 +4,6 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {PersonFormFields} from '@core/enums';
 import {Person} from '@core/interfaces';
 import {take, timer} from 'rxjs';
-import * as dayjs from 'dayjs';
 
 export type PersonDialogResponseType = 'create' | 'delete' | 'edit';
 export interface PersonDialogData {
