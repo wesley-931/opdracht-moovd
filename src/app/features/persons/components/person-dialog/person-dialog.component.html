@@ -38,6 +38,13 @@
           [control]="form.controls[fields.Country]"
         ></app-country-select>
       </div>
+
+      <div class="mb-3 col-12">
+        <label class="form-label">Avatar</label>
+        <app-avatar-picker
+          [control]="form.controls[fields.Avatar]"
+        ></app-avatar-picker>
+      </div>
     </main>
   </ng-container>
 
@@ -64,7 +71,7 @@
     </button>
 
     <button type="submit" class="btn btn-primary" [disabled]="formLoading">
-      <fa-icon icon="plus"></fa-icon>
+      <fa-icon [icon]="editMode ? 'save' : 'plus'"></fa-icon>
       Save
     </button>
   </footer>

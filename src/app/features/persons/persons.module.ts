@@ -10,6 +10,7 @@ import {PersonDialogComponent} from './components/person-dialog/person-dialog.co
 import {CountrySelectModule} from '@shared/components/country-select/country-select.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {PipesModule} from '@shared/pipes/pipes/pipes.module';
+import {AvatarModule} from '@shared/components/avatar/avatar.module';
 
 @NgModule({
   declarations: [PersonsComponent, PersonCardComponent, PersonDialogComponent],
@@ -21,6 +22,7 @@ import {PipesModule} from '@shared/pipes/pipes/pipes.module';
     CountrySelectModule,
     ReactiveFormsModule,
     PipesModule,
+    AvatarModule,
   ],
 })
 export class PersonsModule {}

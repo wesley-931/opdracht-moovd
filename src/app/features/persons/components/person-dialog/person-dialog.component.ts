@@ -34,7 +34,7 @@ export class PersonDialogComponent {
       Validators.required,
       Validators.email,
     ]),
-    [this.fields.Avatar]: new FormControl<string | null>('test', []),
+    [this.fields.Avatar]: new FormControl<number | null>(1, []),
     [this.fields.DateOfBirth]: new FormControl<string | null>(null, [
       Validators.required,
     ]),

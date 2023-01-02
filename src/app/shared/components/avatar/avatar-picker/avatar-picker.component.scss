@@ -1,0 +1,22 @@
+@import 'includes';
+:host {
+  @include flex();
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #ebebec;
+  border-radius: 0.5rem;
+}
+
+.avatar-wrap {
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  @include flex();
+}
+
+app-avatar {
+  cursor: pointer;
+}
+
+p {
+  font-weight: 500;
+}

@@ -1,1 +1,12 @@
-<p>avatar-picker works!</p>
+<div><app-avatar [avatarId]="control.value"></app-avatar></div>
+<div>
+  <p>Pick a avatar:</p>
+  <div class="avatar-wrap">
+    <app-avatar
+      (click)="pickAvatar(avatar.id)"
+      *ngFor="let avatar of avatars"
+      size="sm"
+      [avatarId]="avatar.id"
+    ></app-avatar>
+  </div>
+</div>
