@@ -1,6 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AvatarPickerComponent } from './avatar-picker.component';
+import {AvatarPickerComponent} from './avatar-picker.component';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {TestingModule} from '@core/testing/testing.module';
 
 describe('AvatarPickerComponent', () => {
   let component: AvatarPickerComponent;
@@ -8,9 +10,10 @@ describe('AvatarPickerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AvatarPickerComponent ]
-    })
-    .compileComponents();
+      declarations: [AvatarPickerComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      imports: [TestingModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(AvatarPickerComponent);
     component = fixture.componentInstance;

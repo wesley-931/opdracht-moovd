@@ -1,21 +1,21 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {PersonDialogComponent} from './person-dialog.component';
+import {AvatarComponent} from './avatar.component';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {TestingModule} from '@core/testing/testing.module';
 
-describe('PersonDialogComponent', () => {
-  let component: PersonDialogComponent;
-  let fixture: ComponentFixture<PersonDialogComponent>;
+describe('AvatarComponent', () => {
+  let component: AvatarComponent;
+  let fixture: ComponentFixture<AvatarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PersonDialogComponent],
+      declarations: [AvatarComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       imports: [TestingModule],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(PersonDialogComponent);
+    fixture = TestBed.createComponent(AvatarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
